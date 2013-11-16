@@ -1,8 +1,6 @@
 # include <iostream>
-# include <algorithm>
 # include <string>
 # include <cstddef>
-
 
 int reverse(int num){
     int ret = 0;
@@ -14,6 +12,7 @@ int reverse(int num){
 }
 
 int main(){
+    ios_base::sync_with_stdio(false); // increase c++ IO speed.
     int num1, num2;
     int count = 0;
 
