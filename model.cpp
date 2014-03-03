@@ -22,6 +22,7 @@ link:
  
 #define FOR(i, s, e) for(int i=s; i<e; i++)
 #define loop(i, n) FOR(i, 0, n)
+#define tr(cont, it) for(typeof(cont.begin()) it=cont.begin() ; it != cont.end() ; it++)
 #define gi(a) sf("%d", &a)
 #define gi2(a, b) sf("%d%d", &a, &b)
 #define gi3(a, b, c) sf("%d%d%d", &a, &b, &c)
@@ -46,31 +47,5 @@ link:
 using namespace std;
 
 int main(){
-	read;
-	write;
-
-	int n;
-
-	while(gi(n), n){
-		priority_queue<int, vector<int>, greater<int>()> numbers;
-
-		while(n--){
-			int temp;
-			gi(temp);
-			numbers.push(temp);
-		}
-		int sum = 0, cost = 0;
-		while(SZ(numbers) > 1){
-			sum = numbers.top();
-			numbers.pop();
-			sum += numbers.top();
-			numbers.pop();
-			cost += sum;
-			numbers.push(sum);
-		}
-
-		pf("%d\n", cost);
-	}
-
 
 }
