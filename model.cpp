@@ -47,5 +47,10 @@ link:
 using namespace std;
 
 int main(){
+	read;
+	write;
 
+	/* Source Code */
+
+	
 }
