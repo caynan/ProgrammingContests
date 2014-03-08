@@ -1,8 +1,8 @@
 /*
 user: caynanvls (http://uhunt.felix-halim.net/id/183008)
 
-problem: 
-link: 
+problem: 575 - Skew Binary
+link: http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=516
 */
  
 # include <iostream>
@@ -46,10 +46,23 @@ link:
  
 using namespace std;
 
+long calculateSkewOf(string s){
+	int power, len = SZ(s);
+	int i;
+	ll ans = 0;
+	loop(i, len) {
+		power = len - i;
+		ans += (s[i] - '0') * ((1 << power) - 1);
+	}
+	return ans;
+}
+
 int main(){
-	read;
-	write;
-
-	/* Source Code */
-
+	// read;
+	// write;
+	string n;
+	while(cin >> n && n != "0"){
+		long skew = calculateSkewOf(n);
+		pf("%ld\n", skew);
+	}
 }

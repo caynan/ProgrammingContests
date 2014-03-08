@@ -1,8 +1,16 @@
 /*
 user: caynanvls (http://uhunt.felix-halim.net/id/183008)
 
-problem: 
-link: 
+problem: 264 - Count on Cantor
+link: http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=200
+
+HINT:
+use this code in python to generate and find the correct output in http://uvatoolkit.com/problemssolve.php
+python code:
+import random
+
+for i in range (1000):
+	print ("%d" % random.randint(1, 10000000))
 */
  
 # include <iostream>
@@ -46,10 +54,42 @@ link:
  
 using namespace std;
 
+string cantorNumber(long n);
+
 int main(){
-	read;
-	write;
+//	read;
+//	write;
 
-	/* Source Code */
+	long n;
+	int newLine = 0;
+	while(gi(n) == 1){
+		pf("TERM %d IS %s\n", n, cantorNumber(n).c_str());
+	}
 
+}
+
+string cantorNumber(long n){
+	ostringstream ans;
+	int numerator, denominator;
+	long diagonal, rest = n;
+	for (diagonal = 1; diagonal < rest; diagonal++) {
+		rest -= diagonal;
+	}
+	// even diagonal:
+	// numerator is crescent
+	// denominator is decrescent
+	if (diagonal % 2 == 0) {
+		numerator = rest;
+		denominator = (diagonal - numerator) + 1;	
+	}
+	// odd diagonal:
+	// numerator is decrescent
+	// denominator is crescent
+	else {
+		numerator = (diagonal - rest) + 1;
+		denominator = rest;
+	}
+	// convert to string
+	ans << numerator << "/" << denominator; 
+	return ans.str();
 }

@@ -1,8 +1,8 @@
 /*
 user: caynanvls (http://uhunt.felix-halim.net/id/183008)
 
-problem: 
-link: 
+problem: 113 - Power of Cryptography
+link: http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=49
 */
  
 # include <iostream>
@@ -10,8 +10,6 @@ link:
 # include <cstring>
 # include <cstdlib>
 # include <cmath>
-# include <string>
-# include <sstream>
  
 # include <algorithm>
 # include <vector>
@@ -33,6 +31,8 @@ link:
 #define pf printf
 #define pb push_back
 #define MP make_pair
+#define fr first
+#define sc second
 #define ll long long
 #define dd double
 #define all(v) v.begin(), v.end()
@@ -47,9 +47,13 @@ link:
 using namespace std;
 
 int main(){
-	read;
-	write;
+	// read;
+	// write;
 
-	/* Source Code */
+	double  n, p;
+	while( sf("%lf\n%lf", &n, &p) == 2) {
+		//double k = exp(log(n)/p);
+		pf("%.0lf\n", pow(p, 1/n));
 
+	}
 }
