@@ -1,8 +1,20 @@
+import string
+from collections import Counter
+
+
 def checkio(text):
-    text = set(text.lower())
-    max([(text.count(x), x) for x in text if x.isalpha()]
-    
-    
+    # preprocessing
+    filter = ' ' + string.punctuation + string.digits
+    text = ''.join(c for c in text.lower() if c not in filter)
+    c = dict(Counter(text))
+
+    # Sorting
+    items = list(c.items())
+    items.sort()  # sort by letters
+    items.sort(key=lambda v: -v[1])  # sort by values
+
+    return items[0][0]  # get letter from first element
+
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
