@@ -18,8 +18,20 @@ def clean(text):
 def checkio(text):
     text = clean(text)
 
+    count = 0
+    for word in text:
+        first_letter = word[0]
+        even_chars = word[::2]
+        odd_chars = word[1::2]
 
-    return 0
+        # Count words
+        if (all(c in VOWELS for c in even_chars) and \
+           all(c in CONSONANTS for c in odd_chars)) or \
+           (all(c in CONSONANTS for c in even_chars) and \
+           all(c in VOWELS for c in odd_chars)):
+                count += 1
+
+    return count
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
