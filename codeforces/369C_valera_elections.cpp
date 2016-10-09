@@ -1,10 +1,15 @@
 #include <iostream>
+// for some magical reason (investigate this later), g++ on my OSX don't need
+// this, interesting hum.
+#include <iterator>
 #include <vector>
 #include <unordered_map>
 #include <utility>
 #include <set>
 
+
 using namespace std;
+
 
 // Adjancecy list using unordered_map, by using a adjList dfs runs in O(V + E)
 // in case you don't know, using adjMatrix makes dfs run in O(V^2).
@@ -78,10 +83,11 @@ int main() {
         }
     }
 
-    if (!solutionCandidates.empty()) {
-        // get number of candidates.
-        cout << solutionCandidates.size() << "\n";
+    // print number of candidates.
+    cout << solutionCandidates.size() << "\n";
 
+    // we check if empty, since ostream have unexpected behaviour with empty vector.
+    if (!solutionCandidates.empty()) {
         // we're using ostream_iterator with copy to print elements separated by space.
         ostream_iterator<int> out_it (cout, " "); // iterator for cout
         copy(solutionCandidates.begin(), solutionCandidates.end(), out_it);
