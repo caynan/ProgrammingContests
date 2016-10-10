@@ -10,7 +10,7 @@ const int MAX_DISTANCE = 200100;
 vector<int> distances, shortcut;
 vector<bool> visited;
 
-void calculateShortestPaths() {
+void calculateShortestPaths(int n) {
     // queue... it's a BFS remmember :p
     queue<int> mQueue;
 
@@ -30,7 +30,7 @@ void calculateShortestPaths() {
 
         // check if next intersection distance is bigger than the distance to
         // current + 1, if it's it means we just found a better way
-        if (distances[current + 1] > distances[current] + 1) {
+        if (current < n && distances[current + 1] > distances[current] + 1) {
             // set new distances to next node
             distances[current + 1] = distances[current] + 1;
 
@@ -44,7 +44,7 @@ void calculateShortestPaths() {
 
         // check if previous intersection distance is bigger than the distance to
         // current + 1, if it's it means we found a better way
-        if (distances[current - 1] > distances[current] + 1) {
+        if (current > 1 && distances[current - 1] > distances[current] + 1) {
             // set new distances to previous node
             distances[current - 1] = distances[current] + 1;
 
@@ -87,7 +87,7 @@ int main() {
     }
 
     // run bfs to find smallest path for each intersection
-    calculateShortestPaths();
+    calculateShortestPaths(n);
 
     // print results separated by space (remember that the first element
     // is the zero indexed value, which doesn't exist, so we jump it)
