@@ -24,7 +24,7 @@ int main() {
             // for the rest of the possible chars we simply add them to the output.
             else {
                 textInput.insert(iter, line[i]);
-            }
+            } 
         }
 
         // we can't use cout to print a list, so we use the ostream_iterator.
